@@ -1,0 +1,16 @@
+# === Large datasets and generated files ===
+/inputs/
+/jupyter_notebooks/
+/outputs/
+
+# === Python caches and notebooks ===
+__pycache__/
+.ipynb_checkpoints/
+
+# === Dev / local only ===
+venv/
+.env
+
+# === VCS and docs ===
+.git/
+README.md
