@@ -16,7 +16,22 @@
     - [Hypothesis 2 Validation](#hypothesis-2-validation)
     - [Hypothesis 3](#hypothesis-3)
     - [Hypothesis 3 Validation](#hypothesis-3-validation)
-
+  - [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+  - [ML business case](#ml-business-case)
+  - [Dashboard Design](#dashboard-design)
+  - [Bugs](#bugs)
+  - [Deployment](#deployment)
+    - [Heroku](#heroku)
+  - [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+  - [Other technologies used](#other-technologies-used)
+  - [Issues](#issues)
+  - [testing](#testing)
+    - [Manual Testing](#manual-testing)
+    - [Python Validation](#python-validation)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 ## Introduction
 
 Mildew detection in cherry leaves is a data science and machine learning (ML) project that uses predictive analytics to tell the difference between 2 different sets of images. The business goal is to assist the client, an agri-food business who is dealing with an infestation of powdery mildew in its cherry tree leaves. 
@@ -65,3 +80,35 @@ To save time in this process, the IT team suggested an ML system that detects in
 ### Hypothesis 3 Validation
 
  We validated this by creating a final version of the ML model. This time, when augmenting the dataset the class mode was changed to categorical and the activation function in the ML model was changed to softmax.
+
+## The rationale to map the business requirements to the Data Visualisations and ML tasks
+## ML business case
+## Dashboard Design
+## Bugs
+## Deployment
+### Heroku
+## Main Data Analysis and Machine Learning Libraries
+## Other technologies used
+## Issues
+## testing
+### Manual Testing
+### Python Validation
+## Credits
+
+### Content
+
+- Information on powdery midlew was taken from https://en.wikipedia.org/wiki/Powdery_mildew
+- The dataset was created by Code institute and taken from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves)
+- The Malaria Walkthrough Project from Code Institute was used as a guide when assembling this project.
+
+### Media
+
+- the favicon was obtained here: https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/
+
+[Back to top](#table-of-contents)
+
+## Acknowledgements
+
+- I would like to acknowledge my mentor, Mo Shami, who provided valuable insights and guidance during the project. I would also like to thank the Slack community and Neil McEwen, who helped with technical issues.
+
+[Back to top](#table-of-contents)
