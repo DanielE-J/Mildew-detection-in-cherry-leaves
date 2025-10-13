@@ -12,8 +12,6 @@
   - [Hypothesis 1 Validation](#hypothesis-1-validation)
   - [Hypothesis 2](#hypothesis-2)
   - [Hypothesis 2 Validation](#hypothesis-2-validation)
-  - [Hypothesis 3](#hypothesis-3)
-  - [Hypothesis 3 Validation](#hypothesis-3-validation)
 - [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 - [Dashboard Design (Streamlit App User Interface)](#dashboard-design-streamlit-app-user-interface)
   - [Page 1: Quick Project Summary](#page-1-quick-project-summary)
@@ -126,31 +124,54 @@ In this way, the model can generalize and reliably predict future observations b
 
 ### Hypothesis 2
 
-> Our second hypothesis is that the ML model will be just as accurate using grayscale images as colour ones.
+> Converting RGB images to grayscale improves image classification performance
+
+For further details the results mentioned in this section can be downloaded here rgb hypothesis and here gray hypothesis
 
 It is possible that colour images may not be available in future. To prepare for this, we will test whether grayscale images may also be used.
 
 ### Hypothesis 2 Validation
 
-To validate this, a second version of the ML model was created where during image augmentation, the color mode was set to grayscale when augmenting data on each set.
-
-Below are the results for accuracy and loss when the model was trained using grayscale images:
-
-
 **1. Introduction**
 
    1. Understand problem and mathematical functions
 
+For further details the results mentioned in this section can be downloaded here [rgb hypothesis](https://github.com/cla-cif/Cherry-Powdery-Mildew-Detector/blob/main/attachments/ModellingEvaluating_softmax_rgb.ipynb) and here [gray hypothesis](https://github.com/cla-cif/Cherry-Powdery-Mildew-Detector/blob/main/attachments/ModellingEvaluating_gray.ipynb)
+
+**1. Introduction**
+
+Digital images are made of pixels, every image has three main properties:
+   - Size — This is the height and width of an image. It can be represented in centimeters, inches or even in pixels.
+   - Color space — Examples are RGB and HSV color spaces.
+   - Channel — This is an attribute of the color space. 
+  
+Each pixel of a coloured image is made of combinations of primary colors represented by a series of code. RGB color space has three types of colors or attributes known as Red, Green and Blue (hence the name RGB).
+A grayscale image is one in which the value of each pixel is a single sample representing only an amount of light; that is, it carries only intensity information. Grayscale images, a kind of black-and-white or gray monochrome, are composed exclusively of shades of gray.
+
+In an RGB image where there are three color channels, a pixel value has three numbers, each ranging from 0 to 255 (both inclusive). For example, the number 0 of a pixel in the red channel means that there is no red color in the pixel while the number 255 means that there is 100% red color in the pixel. A single RGB image can be represented using a three-dimensional (3D) NumPy array or a tensor.<br/>
+In a grayscale image where there is only one channel, a pixel value has just a single number ranging from 0 to 255 (both inclusive). The pixel value 0 represents black and the pixel value 255 represents white. Therefore a single grayscale image can be represented using a two-dimensional (2D) NumPy array or a tensor because it doesn't need an extra dimension for the color channel. <br/>
+Feeding a model with an RGB image or convert that image to grayscale, depends on the nature of the images and the information conveyed by the colour. 
+If the color has no significance in the image to classify, indeed a grayscale image requires less computational power to be processed.<br/><br/>
 
 **2. Observation**
 
+The model was set to train only on 32 Epoch with no early stoppings, just for the purpose of this hypothesis, and shows overfitting around the 10 last epochs as expected.
+The same hyperparameters were set for both examples. 
+The model trained using RGB images showed less training/validation sets gap and more consistent learning rate after the 5th Epoch compared to the model trained using Grayscale images. 
+The same CNN applied to an RGB image dataset has 3,715,234 parameters to train compared to 3,714,658 parameters when the same dataset is converted to grayscale. 
 
+   - Comparison of the same infected leaf image 
+   
+  ![gray_leaf](readme_images/gray.PNG) ![rgb_leaf](readme_images/color.PNG)
 
-### Hypothesis 3
+**3. Conclusion**
 
-> Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
+Keeping the colour information performed better. The plot shows lower loss and more consistent accuracy. A difference of 676 trainable parameters has no significant benefit on the computational cost. 
 
-### Hypothesis 3 Validation
+Sources:
+- [How RGB and Grayscale Images Are Represented in NumPy Arrays](https://towardsdatascience.com/exploring-the-mnist-digits-dataset-7ff62631766a) by [Rukshan Pramoditha](https://rukshanpramoditha.medium.com/)
+
+**2. Observation**
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
