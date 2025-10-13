@@ -260,7 +260,6 @@ It will answer business requirement #1
 
 [Back to top](#table-of-contents)
 
-
 ## Render deployment 
 
 1. Add new
