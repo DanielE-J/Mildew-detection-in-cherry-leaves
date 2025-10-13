@@ -247,7 +247,7 @@ It will answer business requirement #1
 - Link to this Readme.md file for additional information about the project. 
   
 ### Page 4: Project Hypothesis and Validation
-- Block for each project hypothesis including statement, explanation, validation and conclusion. See [Hypothesis and validation](#Hypothesis-and-validation)
+- Block for each project hypothesis including statement, explanation, validation and conclusion.
 - Link to this Readme.md file for additional information about the project. 
 
 ### Page 5: ML Performance Metrics
