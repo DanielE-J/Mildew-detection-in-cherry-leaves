@@ -11,9 +11,9 @@ def page_ml_performance_metrics():
         f"This page provides a user-friendly presentation of how the dataset was divided, how the model performed on that data and"
         f" a brief explaination of each result. "
     )
-    st.write("### Images distribution per set and label ")
-    labels_distribution = plt.imread(f"outputs/{version}/avg_var_powdery_mildew.png")
-    st.image(labels_distribution, caption='Labels Distribution on Train, Validation and Test Sets')
+    distribute_label = plt.imread(f"outputs/{version}/number_leaves_sets.png")
+    st.image(distribute_label,
+            caption='Labels Distribution on Train, Validation and Test Sets')
 
     labels_distribution = plt.imread(f"outputs/{version}/sets_distribution_pie.png")
     st.image(labels_distribution, caption='Sets distribution')
