@@ -13,6 +13,7 @@
   - [Hypothesis 2 Validation](#hypothesis-2-validation)
   - [Hypothesis 3](#hypothesis-3)
   - [Hypothesis 3 Validation](#hypothesis-3-validation)
+- [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 
 
 ## Introduction
@@ -116,3 +117,48 @@ In this way, the model can generalize and reliably predict future observations b
 > Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
 
 ### Hypothesis 3 Validation
+
+## The rationale to map the business requirements to the Data Visualisations and ML tasks
+
+In this project, we aimed to balance accuracy, speed, scalability, and interpretability of results. The following outlines how the defined business requirements were addressed through data processing, machine learning, and dashboard development.
+
+Requirement 1 – Visual Differentiation of Healthy vs. Infected Cherry Leaves
+
+The client requested a study to determine whether healthy cherry leaves could be visually distinguished from those infected with powdery mildew. This was approached as a classification problem, with supporting data visualisation and ML analysis tasks.
+
+* Related User Stories
+  - As a data scientist, I can collect and prepare data so that it can be used for analysis and model training.
+    - Relevant datasets were sourced from Kaggle and thoroughly cleaned to ensure data quality. Non-image files were removed via a preprocessing notebook.
+    - Images were converted to arrays, and statistical analyses were conducted to compare average pixel intensities and variability between healthy and diseased leaves.
+    - The results demonstrated visual patterns that differentiate the two classes, validating the hypothesis.
+
+* As an end user, I can review a page of project findings to understand the conclusions of the analysis.
+  - The Image Visualizer page on the dashboard presents the study’s results, including:
+    -Average images for both healthy and diseased leaves
+    - Variability maps
+    - A comparative visual showing the differences between both conditions
+  - Users can also view image montages of each class for better context and understanding.
+
+* As an end user, I can view a page detailing the project hypothesis to understand the reasoning behind the developer's analysis.
+  - The project hypothesised that there are identifiable visual differences between healthy and mildew-affected leaves, which was confirmed through statistical and visual analysis.
+
+Requirement 2 – Prediction of Leaf Health Status
+
+The client also requested a predictive tool capable of determining whether an uploaded leaf image shows signs of powdery mildew.
+
+Related User Stories
+
+* As a data scientist, I can create a machine learning model to make predictions on uploaded images.
+  - A Convolutional Neural Network (CNN) was trained to classify images as healthy or infected.
+  - The model architecture incorporated multiple convolutional and activation layers to maximise classification accuracy.
+  - The resulting model was integrated into the dashboard for real-time inference.
+
+* As an end user, I can upload an image of a leaf to determine if it is diseased.
+  - The Mildew Detector page allows users to upload leaf images directly.
+  - The uploaded image is processed through the trained CNN, which provides an accurate prediction of the leaf’s health status, along with a clear visual output.
+
+* Summary
+  - Together, these requirements ensure that:
+  - The data analysis confirms visual differentiation between healthy and infected leaves.
+  - The machine learning model operationalises this differentiation for real-time prediction.
+  - The dashboard interface enables users to interact intuitively with both study results and predictive tools.
