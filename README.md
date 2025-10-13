@@ -7,6 +7,9 @@
 - [Introduction](#introduction)
 - [Dataset Content](#dataset-content)
 - [Business Requirements](#business-requirements)
+- [Hypothesis](#hypothesis)
+  - [Hypothesis 1](#hypothesis-1)
+  - [Hypothesis 1 Validation](#hypothesis-1-validation)
 - [Epics and User Stories](#epics-and-user-stories)
   - [Epic - Information Gathering and Data Collection](#epic---information-gathering-and-data-collection)
   - [Epic - Data Visualization, Cleaning, and Preparation](#epic---data-visualization-cleaning-and-preparation)
@@ -67,6 +70,59 @@ The specific requirements are as follows:
 2. The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew. To meet this requirement, a Convolutional Neural Network (CNN) should be developed to classify images as healthy or infected.
 
 [Back to top](#table-of-contents)
+
+## Hypothesis
+
+### Hypothesis 1
+
+> Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
+
+### Hypothesis 1 Validation
+
+**1. Introduction**
+
+Cherry leaves affected by powdery mildew often show distinct visual symptoms. The earliest sign is usually a light-green, circular lesion on either side of the leaf, followed by the appearance of a fine, white, cotton-like growth in the infected area. To enable a machine learning model to recognize these characteristics effectively, the images must be preprocessed appropriately before being used for feature extraction and training.
+
+  1. Understand problem and mathematical functions
+
+When we are dealing with an Image dataset, it's important to normalize the images in the dataset before training a Neural Network on it. This is required because of the following two core reasons:
+- It helps the trained Neural Network give consistent results for new test images.
+- Helps in Transfer Learning
+To normalize an image, one will need the mean and standard deviation of the entire dataset.
+
+To calculate the **mean** and **standard deviation**, the mathematical formula takes into consideration four dimensions of an image (B, C, H, W) where:
+- B is batch size that is number of images
+- C is the number of channels in the image which will be 3 for RGB images.
+- H is the height of each image
+- W is the width of each image
+Mean and std is calculated separately for each channel. The challenge is that we cannot load the entire dataset into memory to calculate these paramters. We can load a small set of images (batches) one by one and this can make the computation of mean and std non-trivial.
+
+**2. Observation**
+
+The Image Montage shows the difference between a healthy leaf and an infected one.
+
+![montage_healthy](readme_images/healthy.PNG)
+![montage_unhealthy](readme_images/unhealthy.PNG)
+
+Difference between average and variability images shows that affected leaves present more white stipes on the center.
+
+![average variability between samples](readme_images/average_healunheal.PNG)
+
+While image difference between average infected and average infected leaves shows no intuitive difference. 
+
+![average variability between samples](readme_images/avgall.PNG)
+
+**3. Conclusion**
+
+The model was able to detect differences in the data and learn how to differentiate and generalize in order to make accurate predictions.
+A good model develops its ability to predict classes on batches of data without adhering too closely to the specific examples in the training set.
+In this way, the model can generalize and reliably predict future observations because it doesn’t simply memorize the relationships between features and labels seen during training, but instead learns the underlying patterns that map features to labels.
+
+**Sources**:
+
+- [Pacific Northwest Pest Management Handbooks](https://pnwhandbooks.org/plantdisease/host-disease/cherry-prunus-spp-powdery-mildew)
+- [Calculate mean and std of Image Dataset](https://iq.opengenus.org/calculate-mean-and-std-of-image-dataset/)
+- [Computing Mean & STD in Image Dataset](https://kozodoi.me/python/deep%20learning/pytorch/tutorial/2021/03/08/image-mean-std.html)
 
 ## Epics and User Stories
 * The project was split into 5 Epics based upon the Data Visualisation and Machine Learning tasks and within each of these, user stories were set out to enable an agile methodology.
