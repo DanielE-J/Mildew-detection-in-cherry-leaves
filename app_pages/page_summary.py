@@ -30,3 +30,6 @@ def page_summary_body():
         f"2 - An accurate prediction whether a given leaf is infected by powdery mildew or not. \n\n"
         f"3 - Download a prediction report of the examined leaves."
         )
+    st.write(
+        f"For additional information, please visit and **read** the "
+        f"[Project README file](https://github.com/DanielE-J/Mildew-detection-in-cherry-leaves/blob/main/README.md).")
