@@ -7,6 +7,12 @@
 - [Introduction](#introduction)
 - [Dataset Content](#dataset-content)
 - [Business Requirements](#business-requirements)
+- [Epics and User Stories](#epics-and-user-stories)
+  - [Epic - Information Gathering and Data Collection](#epic---information-gathering-and-data-collection)
+  - [Epic - Data Visualization, Cleaning, and Preparation](#epic---data-visualization-cleaning-and-preparation)
+  - [Epic - Model Training, Optimization and Validation](#epic---model-training-optimization-and-validation)
+  - [Epic - Dashboard Planning, Designing, and Development](#epic---dashboard-planning-designing-and-development)
+  - [Epic - Dashboard Deployment and Release](#epic---dashboard-deployment-and-release)
 - [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 - [Dashboard Design (Streamlit App User Interface)](#dashboard-design-streamlit-app-user-interface)
   - [Page 1: Quick Project Summary](#page-1-quick-project-summary)
@@ -63,6 +69,34 @@ The specific requirements are as follows:
 
 [Back to top](#table-of-contents)
 
+## Epics and User Stories
+* The project was split into 5 Epics based upon the Data Visualisation and Machine Learning tasks and within each of these, user stories were set out to enable an agile methodology.
+
+### Epic - Information Gathering and Data Collection
+* **User Story** -  I can import the dataset from Kaggle so that I can save the data in a local directory.
+* **User Story** -  I can load a saved dataset so that I can analyse the data to gain insights.
+
+### Epic - Data Visualization, Cleaning, and Preparation
+* **User Story** -  I can visualise the dataset so that I can interpret which attributes correlates with Mildew.
+* **User Story** -  I can impute or drop missing data to prepare the dataset for a ML model.
+
+### Epic - Model Training, Optimization and Validation
+* **User Story** -  I can split the data into a train, validate and test set to prepare it for the ML model.
+* **User Story** -  I can fit a ML pipeline with all the data to prepare the ML model for deployment.
+* **User Story** - As a data scientist, I can evaluate the ML model's performance to determine whether it can successfully predict Mildew .
+
+### Epic - Dashboard Planning, Designing, and Development
+* **User Story** -  I can view a project summary that describes the project, dataset and business requirements to understand the project at a glance.
+* **User Story** -  I can view the project hypotheses and validations to determine what the project was trying to achieve and whether it was successful.
+* **User Story** -  I can enter unseen data into the model and receive a prediction.
+* **User Story** -  I can view the correlation analysis to see how the outcomes were reached.
+* **User Story** - As a non-technical user, I can view the project conclusions to see whether the model was successful and if the business requirements were met.
+
+### Epic - Dashboard Deployment and Release
+* **User Story** - As a user, I can view the project dashboard on a live deployed website.
+* **User Story** - As a technical user, I can follow instructions in the readme to fork the repository and deploy the project for myself.
+
+[Back to top](#table-of-contents)
 
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
