@@ -55,18 +55,37 @@ The specific requirements are as follows:
 
 ### Hypothesis 1
 
-Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
+> Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
 
 ### Hypothesis 1 Validation
 
+**1. Introduction**
+
+Cherry leaves affected by powdery mildew often show distinct visual symptoms. The earliest sign is usually a light-green, circular lesion on either side of the leaf, followed by the appearance of a fine, white, cotton-like growth in the infected area. To enable a machine learning model to recognize these characteristics effectively, the images must be preprocessed appropriately before being used for feature extraction and training.
+
+  1. Understand problem and mathematical functions
+
+When we are dealing with an Image dataset, it's important to normalize the images in the dataset before training a Neural Network on it. This is required because of the following two core reasons:
+- It helps the trained Neural Network give consistent results for new test images.
+- Helps in Transfer Learning
+To normalize an image, one will need the mean and standard deviation of the entire dataset.
+
+To calculate the **mean** and **standard deviation**, the mathematical formula takes into consideration four dimensions of an image (B, C, H, W) where:
+- B is batch size that is number of images
+- C is the number of channels in the image which will be 3 for RGB images.
+- H is the height of each image
+- W is the width of each image
+Mean and std is calculated separately for each channel. The challenge is that we cannot load the entire dataset into memory to calculate these paramters. We can load a small set of images (batches) one by one and this can make the computation of mean and std non-trivial.
+
+**2. Observation**
 ### Hypothesis 2
 
-The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
+> The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
 
 ### Hypothesis 2 Validation
 
 ### Hypothesis 3
 
-Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
+> Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
 
 ### Hypothesis 3 Validation
