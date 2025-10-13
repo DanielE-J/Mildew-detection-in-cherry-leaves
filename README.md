@@ -162,3 +162,20 @@ Related User Stories
   - The data analysis confirms visual differentiation between healthy and infected leaves.
   - The machine learning model operationalises this differentiation for real-time prediction.
   - The dashboard interface enables users to interact intuitively with both study results and predictive tools.
+
+
+- ## ML Business Case
+
+The client has requested a solution that will enable them to quickly and efficiently differentiate between healthy & diseased leaves. This will be done by creating a ML model.
+
+The aim behind the ML task is to develop a ML model using a CNN that is able to distinguish a cherry leaf that is healthy from one that has powdery mildew. 
+
+Ultimately, the goal is to develop a binary classification model that can predict with minimum 97% accuracy whether a leaf is infected or not, outputting an appropriate label for the status of a given leaf. Once output has been received, the tree in question may be recommended for treatment.
+
+We may consider this successfully accomplished if it is capable of achieving an accuracy rating of at least 97% on the test dataset. If this is not accomplished, the model has failed. A high accuracy rating is crucial as failure to detect disease may have serious economic implications for the client.
+
+The relevance to the user of this kind of ML model output is that it may be relied upon to deliver trustworthy readings when presented with new data. In addition, the model will output visuals such as the average image for healthy and sick leaves, which will provide a useful reference to the users.
+
+The data is provided by the user and downloaded from Kaggle. It is split into train, test and validation subsets. It is confidential in nature and as such appropriate measures will be taken to protect it. It may only be downloaded from Kaggle if the data practitioner has the appropriate JSON key.
+
+[Back to top](#table-of-contents)
