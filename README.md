@@ -1,42 +1,38 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Mildew detection in cherry leaves
 
-## Template Instructions
+![Responsivity image](/assets/images/dashboard_responsivity.png)
 
-Welcome,
-Extra
-This is the Code Institute student template for the Cherry Leaves project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Table of Contents
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+1. [Introduction](#introduction)
+2. [Dataset Content](#dataset-content)
+3. [Business Requirements](#business-requirements)
+4. [Hypothesis and validation](#hypothesis-and-validation)
+    1. [Hypothesis 1](#hypothesis-1)
+    2. [Hypothesis 1 Validation](#hypothesis-1-validation)
+    3. [Hypothesis 2](#hypothesis-2)
+    4. [Hypothesis 2 Validation](#hypothesis-2-validation)
+    5. [Hypothesis 3](#hypothesis-3)
+    6. [Hypothesis 3 Validation](#hypothesis-3-validation)
+5. [Rationale for the model](#the-rationale-for-the-model)
+6. [Trial and error](#trial-and-error)
+7. [Implementation of the Business Requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
+8. [ML Business case](#ml-business-case)
+9. [Dashboard design](#dashboard-design-streamlit-app-user-interface)
+10.  [CRISP DM Process](#the-process-of-cross-industry-standard-process-for-data-mining)
+11. [Bugs](#bugs)
+12. [Deployment](#deployment)
+13. [Technologies used](#technologies-used)
+14. [Credits](#credits)
 
-## How to use this repo
+## Introduction
 
-1. Use this template to create your GitHub project repo
+Mildew detection in cherry leaves is a data science and machine learning (ML) project that uses predictive analytics to tell the difference between 2 different sets of images. The business goal is to assist the client, an agri-food business who is dealing with an infestation of powdery mildew in its cherry tree leaves. 
 
-1. In your newly created repo click on the green Code button. 
+Currently the client is inspecting trees manually to determine whether they are infected or not and then treated if found to be diseased. This process is both labour intensive and time consuming. We propose the creation of a ML model that can determine from photographs of leaves whether mildew is present, reducing the amount of time taken to determine the status of the tree and enable sick trees to be treated with greater efficiency and accuracy. 
 
-1. Then, from the Codespaces tab, click Create codespace on main.
+The project is hosted on the streamlit app and a live version may be found [here](https://cherrypowderymildewdetector-eb00906f7030.herokuapp.com/)
 
-1. Wait for the workspace to open. This can take a few minutes.
-
-1. Open a new terminal and `pip3 install -r requirements.txt`
-
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
-
-1. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.12.1 as it inherits from the workspace, so it will be Python-3.12.1 as installed by Codespaces. To confirm this, you can use `! python --version` in a notebook code cell.
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, then you can create a new one with _Regenerate API Key_.
 
 ## Dataset Content
 
@@ -52,62 +48,15 @@ To save time in this process, the IT team suggested an ML system that detects in
 - 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
 - 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
-## Hypothesis and how to validate?
+## Hypothesis and validation
 
-- List here your project hypothesis(es) and how you envision validating it (them).
+1. **Hypothesis**: Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
 
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
+- **How to validate**: Research about the disease and build an image study that can help to investigate it.<br/>
 
-- List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+2. **Hypothesis**:  The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
 
-## ML Business Case
+- **How to validate**: Identify the problem type and the mathematical properties of each activation function. Train identical CNN models differing only in the output activation (softmax vs. sigmoid), then compare their performance using appropriate evaluation metrics.
 
-- In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
-
-## Dashboard Design
-
-- List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items, that your dashboard library supports.
-- Finally, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project, you were confident you would use a given plot to display an insight, but later, you chose another plot type).
-
-## Unfixed Bugs
-
-- You will need to mention unfixed bugs and why they were unfixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable for consideration, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
-
-## Deployment
-
-### Heroku
-
-- The App live link is: `https://YOUR_APP_NAME.herokuapp.com/`
-- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-- The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click the button Open App on the top of the page to access your App.
-6. If the slug size is too large, then add large files not required for the app to the .slugignore file.
-
-## Main Data Analysis and Machine Learning Libraries
-
-- Here, you should list the libraries used in the project and provide an example(s) of how you used these libraries.
-
-## Credits
-
-- In this section, you need to reference where you got your content, media and from where you got extra help. It is common practice to use code from other repositories and tutorials. However, it is necessary to be very specific about these sources to avoid plagiarism.
-- You can break the credits section up into Content and Media, depending on what you have included in your project.
-
-### Content
-
-- The text for the Home page was taken from Wikipedia Article A.
-- Instructions on how to implement form validation on the Sign-Up page were taken from [Specific YouTube Tutorial](https://www.youtube.com/).
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/).
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open-Source site.
-- The images used for the gallery page were taken from this other open-source site.
-
-## Acknowledgements (optional)
-
-- Thank the people who provided support throughout this project.
+3. **Hypothesis**: Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
+**How to validate**: We validated this by creating a final version of the ML model. This time, when augmenting the dataset the class mode was changed to categorical and the activation function in the ML model was changed to softmax.
