@@ -2,32 +2,17 @@
 
 ## Table of contents
 
-1. [Introduction](#introduction)
-2. [Dataset Content](#dataset-content)
-3. [Business Requirements](#business-requirements)
-4. [Hypotheses and validation](#hypotheses)
-    1. [Hypothesis 1](#hypothesis-1)
-    2. [Hypothesis 1 Validation](#hypothesis-1-validation)
-    3. [Hypothesis 2](#hypothesis-2)
-    4. [Hypothesis 2 Validation](#hypothesis-2-validation)
-    5. [Hypothesis 3](#hypothesis-3)
-    6. [Hypothesis 3 Validation](#hypothesis-3-validation)
-5. [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-Data-Visualisations-and-ML-tasks)
-6. [ML business case](#ml-business-case)
-7. [Dashboard Design](#dashboard-design)
-8. [Unfixed Bugs](#unfixed-bugs)
-9. [Deployment](#deployment)
-    1. [Heroku](#heroku)
-10. [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
-11. [Other technologies used](#other-technologies-used)
-12. [Issues](#issues)
-13. [Testing](#testing)
-    1. [Manual Testing](#manual-testing)
-    2. [Python Validation](#python-validation)
-14. [Credits](#credits)
-    1. [Content](#content)
-    2. [Media](#media)
-15. [Acknowledgements](#acknowledgements)
+- [Table of contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Dataset Content](#dataset-content)
+- [Business Requirements](#business-requirements)
+- [Hypotheses](#hypotheses)
+  - [Hypothesis 1](#hypothesis-1)
+  - [Hypothesis 1 Validation](#hypothesis-1-validation)
+  - [Hypothesis 2](#hypothesis-2)
+  - [Hypothesis 2 Validation](#hypothesis-2-validation)
+  - [Hypothesis 3](#hypothesis-3)
+  - [Hypothesis 3 Validation](#hypothesis-3-validation)
 
 
 ## Introduction
@@ -65,3 +50,23 @@ The specific requirements are as follows:
 2. The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew. To meet this requirement, a Convolutional Neural Network (CNN) should be developed to classify images as healthy or infected.
 
 [Back to top](#table-of-contents)
+
+## Hypotheses
+
+### Hypothesis 1
+
+Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
+
+### Hypothesis 1 Validation
+
+### Hypothesis 2
+
+The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
+
+### Hypothesis 2 Validation
+
+### Hypothesis 3
+
+Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
+
+### Hypothesis 3 Validation
