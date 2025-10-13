@@ -126,53 +126,25 @@ In this way, the model can generalize and reliably predict future observations b
 
 ### Hypothesis 2
 
-> The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
+> Our second hypothesis is that the ML model will be just as accurate using grayscale images as colour ones.
+
+It is possible that colour images may not be available in future. To prepare for this, we will test whether grayscale images may also be used.
 
 ### Hypothesis 2 Validation
+
+To validate this, a second version of the ML model was created where during image augmentation, the color mode was set to grayscale when augmenting data on each set.
+
+Below are the results for accuracy and loss when the model was trained using grayscale images:
+
 
 **1. Introduction**
 
    1. Understand problem and mathematical functions
 
-First of all let's understand the problem our model is asked to solve. The model is required to assign to a cherry 
-leaf one of the two categories: healthy/infected, which makes it a classification problem. It could be seen as a 
-binary classification (healthy vs NOT healthy) or as a multiclass classification where each output is assigned one 
-and only one label from more than two classes (just two in our case: healthy vs infected).
 
-If the problem is treated as binary classification, the neural network will have one output node. The output 
-represents the probability that the input belongs to a particular class, with values ranging between 0 and 1. 
-Typically, if the probability is < 0.5, the sample is classified as class 0 (healthy), and if it is ≥ 0.5, it is 
-classified as class 1 (infected).
-
-These probabilities are produced using the sigmoid activation function, also known as a squashing function, because it compresses any input value into the range [0, 1], causing outputs to converge toward 0 or 1. The sigmoid is computationally efficient but is mainly suited for binary classification problems. It has a significant drawback known as the vanishing gradient problem, where gradients become very small for large positive or negative input values.
-
-During backpropagation—the process by which a neural network “learns” by adjusting its weights—the error (the difference between the predicted and actual output) is propagated backward through the network. The derivative of the sigmoid function plays a crucial role here, as it determines the slope of the output with respect to its input. This slope indicates how much each weight should be adjusted. However, when the sigmoid output is very close to 0 or 1, the derivative becomes very small, leading to minimal weight updates and slower learning—this is the essence of the squashing effect.
-If we see the problem as **multi class classification** we will have 2 output nodes (because I want to predict two classes healthy vs infected). In this case the `softmax` function is applied to the output layer. Like the previous case the output of this function lies in the range [0,1] but now we are looking at a probability distribution over the predicted classes which adds up to 1 with the target class having the highest probability. The probability distribution comes from normalizing the output for each class between 0 and 1 and divide by their sum. 
-
-   2. Understand how to evaluate the performance
-   
-A learning curve is a plot of model learning performance over experience or time.
-Learning curves are a widely used diagnostic tool in machine learning for algorithms that learn from a training dataset incrementally. The model can be evaluated on the training dataset and on a hold out validation dataset after each update during training and plots of the measured performance can created to show learning curves.
-Reviewing learning curves of models during training can be used to diagnose problems with learning, such as an underfit or overfit model, as well as whether the training and validation datasets are suitably representative. <br/>
-Generally, a learning curve is a plot that shows time or experience on the x-axis (Epoch) and learning or improvement on the y-axis (Loss/Accuracy).
-   -  **Epoch**: refers to the one entire passing of training data through the algorithm. 
-   -  **Loss**: Loss is the penalty for a bad prediction. That is, loss is a number indicating how bad the model's prediction was on a single example. If the model's prediction is perfect, the loss is zero; otherwise, the loss is greater. In our case loss on training set was evaluated against loss on validation set.
-   -  **Accuracy**: Accuracy is the fraction of predictions our model got right. Again accuracy on the training set was measured against accuracy on the validation set. 
-
-In our plot we will be looking for a *good fit* of the learning algorithm which exists between an overfit and underfit model
-A good fit is identified by a training and validation loss that decreases to a point of stability with a minimal gap between the two final loss/accuracy values.
-We should expect some gap between the train and validation loss/accuracy learning curves. This gap is referred to as the “generalization gap.”
-A plot of learning curves shows a good fit if:
-   -  The plot of training loss decreases (or increases if it's an accuracy plot) to a point of stability.
-   -  The plot of validation loss decreases/increases to a point of stability and has a small gap with the training loss.
-   -  Continued training of a good fit will likely lead to an overfit (That's why ML models usually have a [early stopping](https://en.wikipedia.org/wiki/Early_stopping) which interrupts the model's learning phase when it stops to improve).
-  
 **2. Observation**
 
-The model was set to train only on 32 Epoch with no early stoppings, just for the purpose of this hypothesis, and shows overfitting around the 10 last epochs as expected.
-The same hyperparameters were set for both examples. 
-The model trained using ```softmax``` showed less training/validation sets gap and more consistent learning rate after the 5th Epoch compared to the model trained using ```sigmoid```. 
- - Loss/Accuracy of LSTM model trained using `softmax`
+
 
 ### Hypothesis 3
 
