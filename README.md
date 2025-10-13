@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+
 - [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Dataset Content](#dataset-content)
@@ -14,6 +15,19 @@
   - [Hypothesis 3](#hypothesis-3)
   - [Hypothesis 3 Validation](#hypothesis-3-validation)
 - [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+- [Dashboard Design (Streamlit App User Interface)](#dashboard-design-streamlit-app-user-interface)
+  - [Page 1: Quick Project Summary](#page-1-quick-project-summary)
+  - [Page 2: leaves Visualizer](#page-2-leaves-visualizer)
+  - [Page 3: Powdery mildew Detector](#page-3-powdery-mildew-detector)
+  - [Page 4: Project Hypothesis and Validation](#page-4-project-hypothesis-and-validation)
+  - [Page 5: ML Performance Metrics](#page-5-ml-performance-metrics)
+- [Unfixed Bugs](#unfixed-bugs)
+- [Heroku Deployment](#heroku-deployment)
+- [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
+- [Other Technologies used](#other-technologies-used)
+- [Issues](#issues)
+- [Testing](#testing)
+  - [Manual Testing](#manual-testing)
 
 
 ## Introduction
@@ -179,3 +193,147 @@ The relevance to the user of this kind of ML model output is that it may be reli
 The data is provided by the user and downloaded from Kaggle. It is split into train, test and validation subsets. It is confidential in nature and as such appropriate measures will be taken to protect it. It may only be downloaded from Kaggle if the data practitioner has the appropriate JSON key.
 
 [Back to top](#table-of-contents)
+
+## Dashboard Design (Streamlit App User Interface)
+
+### Page 1: Quick Project Summary
+- Quick project summary
+    - General Information:
+        - Powdery mildew is a parasitic fungal disease caused by Podosphaera clandestina in cherry trees. When the fungus begins to take over the plants, a layer of mildew made up of many spores forms across the top of the leaves. The disease is particularly severe on new growth, can slow down the growth of the plant and can infect fruit as well, causing direct crop loss.
+        - Visual criteria used to detect infected leaves are light-green, circular lesion on either leaf surface and later on a subtle white cotton-like growth develops in the infected area on either leaf surface and on the fruits thus reducing yield and quality."
+- Project Dataset
+The available dataset provided by Farmy & Foody contains 4208 featured photos of single cherry leaves against a neutral background. The leaves are either healthy or infested by cherry powdery mildew.
+- Business requirements:
+    1. The client is interested to have a study to visually differentiate between a parasite-contained and uninfected leaf.
+    2. The client is interested in telling whether a given leaf contains a powdery mildew parasite or not.
+    3. The client is interested in obtaining a prediction report of the examined leaves. 
+- Link to this Readme.md file for additional information about the project. 
+
+### Page 2: leaves Visualizer
+It will answer business requirement #1
+- Checkbox 1 - Difference between average and variability image
+- Checkbox 2 - Differences between average parasitised and average uninfected leaves
+- Checkbox 3 - Image Montage
+- Link to this Readme.md file for additional information about the project. 
+
+### Page 3: Powdery mildew Detector
+- Business requirement #2 and #3 information - "The client is interested in telling whether a given leaf is infected with powdery mildew or not and obtaining a downloadable report of the examined leaves."
+- Link to download a set of parasite-contained and uninfected leaf images for live prediction on [Kaggle](https://www.kaggle.com/datasets/codeinstitute/cherry-leaves)
+- User Interface with a file uploader widget. The user can upload multiple cherry leaves images. It will display the image, a barplot of the visual representation of the prediction and the prediction statement, indicating if the leaf is infected or not with powdery mildew and the probability associated with this statement.
+- Table with the image name and prediction results.
+- Download button to download the report in a ```.csv``` format. 
+- Link to this Readme.md file for additional information about the project. 
+  
+### Page 4: Project Hypothesis and Validation
+- Block for each project hypothesis including statement, explanation, validation and conclusion. See [Hypothesis and validation](#Hypothesis-and-validation)
+- Link to this Readme.md file for additional information about the project. 
+
+### Page 5: ML Performance Metrics
+- Label Frequencies for Train, Validation and Test Sets
+- Dataset percentage distribution among the three sets
+- Model performance - ROC curve
+- Model accuracy - Confusion matrix
+- Model History - Accuracy and Losses of LSTM Model
+- Model evaluation result on Test set
+
+[Back to top](#table-of-contents)
+
+## Unfixed Bugs
+There are no unfixed bugs
+
+[Back to top](#table-of-contents)
+
+
+## Heroku Deployment
+
+[Official Page](https://devcenter.heroku.com/articles/git) (Ctrl + click)
+
+This application has been deployed from Github using Heroku. Here's how:
+
+1. Create an account at heroku.com
+
+2. Create an app, give it a name, and select a region
+
+3. Conect heroku to you github repository
+
+4. Deploy
+
+[Back to top](#table-of-contents)
+
+## Main Data Analysis and Machine Learning Libraries
+The main libraries used were: 
+* numpy 1.26.1 - used to convert information to arrays
+* pandas 2.1.1 - used for converting information to a dataframe and saving as such
+* matplotlib 3.4.0 - used to plot the distribution of datasets
+* seaborn 0.13.2 - used for making statistical graphics
+* plotly 5.10.0 - used for plotting results of ML model training
+* Pillow 10.0.1 - used to adjust images
+* streamlit 1.40.2 - used to create the dashboard's interface
+* joblib 1.4.2 - used for runnning tasks in parallel
+* scikit-learn 1.3.1 - used for model evaluation
+* tensorflow-cpu 2.16.1 - used for model creation
+* keras 3.0.0 - used to set hyperparameters for the model
+
+[Back to top](#table-of-contents)
+
+## Other Technologies used
+
+* Streamlit - used for dashboard development to present data and for final project delivery
+
+* Heroku - used to deploy the project as a web app.
+
+* Git/GitHub - used for version control and code storage
+
+* Gitpod - IDE used to develop the project
+
+* Am I responsive - used to produce screenshot of the project.
+
+[Back to top](#table-of-contents)
+
+## Issues
+
+* Dont know exactly what happend but everything crashed 2025-10-11 so did a new repository thats why this is so new.
+
+* Deployment - When attempting to deploy the app, it was discovered that it was too large to be posted. Despite adding a number of items to the .slugignore, it was still too large. To find more space, older versions of some libraries were used, and the python version selected was changed from 3.12 to 3.9, and some images had to be removed from the validation set posted to the dashboard that is used for the image visualiser page.
+
+
+## Testing
+
+### Manual Testing
+
+*Business Requirements Testing*
+
+**Requirement 1** - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+
+* As an end user, I can review a page of project findings so that I can receive more detailed information on what conclusions the development team came to.
+
+| Dashboard item | Test conducted | Expected result | Actual result |
+| -- | -- | -- | -- |
+| Navbar | Selecting button for Image Visualiser | Image Visualiser page opens | Success |
+| Button for difference between average & variability image | Click button | Display average & variability image for healthy & infected leaves | Success |
+| Button for difference between average healthy & infect leaves | Click button | Display both average images & difference image for average healthy & infect leaves | Success |
+| Button for image montage | Click button | Display dropdown for montage creation | Success |
+| Dropdown option for healthy leaves | Select & click button to create montage | See montage of healthy leaves| Success |
+| Dropdown option for infected leaves | Select & click button to create montage | See montage of infected leaves| Success |
+
+* As an end user I can view a page detailing the project hypothesis so that I can understand the reasoning behind the developer's analysis
+
+| Dashboard item | Test conducted | Expected result | Actual result |
+| -- | -- | -- | -- |
+| Navbar | Selecting button for Project Hypotheses | Project Hypothesis page opens | Success |
+
+**Requirement 2** - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+
+The client wanted a dashboard that would let them upload images of leaves to the site and have an accurate reading of whether they were healthy or sick. This requirement was considered in the below user story:
+
+* As an end user I can upload an image of a leaf so that I can learn if it is diseased or not. 
+
+| Dashboard item | Test conducted | Expected result | Actual result |
+| -- | -- | -- | -- |
+| Navbar | Selecting button for Mildew Detector |Mildew Detector page opens | Success |
+| Link to Kaggle on Mildew Detector page | Click on link |Kaggle page for dataset opens | Success |
+| Box for uploading data | Drag & drop leaf image into box | See report displaying analysis of the image | Success |
+| Box for uploading data | Use browse files button | File explorer opens to enable selection | Success |
+| Box for uploading data | Upload image from file explorer | See report displaying analysis of the image | Success |
+| Box for uploading data | Repeat prior two items for multiple images | See report displaying analysis of all the images| Success |
+| Image analysis report | Click button to download csv report of analysis | Report is downloaded containing the results shown on dashboard| Success |
