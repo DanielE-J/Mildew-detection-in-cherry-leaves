@@ -7,11 +7,6 @@
 - [Introduction](#introduction)
 - [Dataset Content](#dataset-content)
 - [Business Requirements](#business-requirements)
-- [Hypotheses](#hypotheses)
-  - [Hypothesis 1](#hypothesis-1)
-  - [Hypothesis 1 Validation](#hypothesis-1-validation)
-  - [Hypothesis 2](#hypothesis-2)
-  - [Hypothesis 2 Validation](#hypothesis-2-validation)
 - [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
 - [Dashboard Design (Streamlit App User Interface)](#dashboard-design-streamlit-app-user-interface)
   - [Page 1: Quick Project Summary](#page-1-quick-project-summary)
@@ -68,110 +63,7 @@ The specific requirements are as follows:
 
 [Back to top](#table-of-contents)
 
-## Hypotheses
 
-### Hypothesis 1
-
-> Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
-
-### Hypothesis 1 Validation
-
-**1. Introduction**
-
-Cherry leaves affected by powdery mildew often show distinct visual symptoms. The earliest sign is usually a light-green, circular lesion on either side of the leaf, followed by the appearance of a fine, white, cotton-like growth in the infected area. To enable a machine learning model to recognize these characteristics effectively, the images must be preprocessed appropriately before being used for feature extraction and training.
-
-  1. Understand problem and mathematical functions
-
-When we are dealing with an Image dataset, it's important to normalize the images in the dataset before training a Neural Network on it. This is required because of the following two core reasons:
-- It helps the trained Neural Network give consistent results for new test images.
-- Helps in Transfer Learning
-To normalize an image, one will need the mean and standard deviation of the entire dataset.
-
-To calculate the **mean** and **standard deviation**, the mathematical formula takes into consideration four dimensions of an image (B, C, H, W) where:
-- B is batch size that is number of images
-- C is the number of channels in the image which will be 3 for RGB images.
-- H is the height of each image
-- W is the width of each image
-Mean and std is calculated separately for each channel. The challenge is that we cannot load the entire dataset into memory to calculate these paramters. We can load a small set of images (batches) one by one and this can make the computation of mean and std non-trivial.
-
-**2. Observation**
-
-The Image Montage shows the difference between a healthy leaf and an infected one.
-
-![montage_healthy](readme_images/healthy.PNG)
-![montage_unhealthy](readme_images/unhealthy.PNG)
-
-Difference between average and variability images shows that affected leaves present more white stipes on the center.
-
-![average variability between samples](readme_images/average_healunheal.PNG)
-
-While image difference between average infected and average infected leaves shows no intuitive difference. 
-
-![average variability between samples](readme_images/avgall.PNG)
-
-**3. Conclusion**
-
-The model was able to detect differences in the data and learn how to differentiate and generalize in order to make accurate predictions.
-A good model develops its ability to predict classes on batches of data without adhering too closely to the specific examples in the training set.
-In this way, the model can generalize and reliably predict future observations because it doesn’t simply memorize the relationships between features and labels seen during training, but instead learns the underlying patterns that map features to labels.
-
-**Sources**:
-
-- [Pacific Northwest Pest Management Handbooks](https://pnwhandbooks.org/plantdisease/host-disease/cherry-prunus-spp-powdery-mildew)
-- [Calculate mean and std of Image Dataset](https://iq.opengenus.org/calculate-mean-and-std-of-image-dataset/)
-- [Computing Mean & STD in Image Dataset](https://kozodoi.me/python/deep%20learning/pytorch/tutorial/2021/03/08/image-mean-std.html)
-
-
-### Hypothesis 2
-
-> Converting RGB images to grayscale improves image classification performance
-
-For further details the results mentioned in this section can be downloaded here rgb hypothesis and here gray hypothesis
-
-It is possible that colour images may not be available in future. To prepare for this, we will test whether grayscale images may also be used.
-
-### Hypothesis 2 Validation
-
-**1. Introduction**
-
-   1. Understand problem and mathematical functions
-
-For further details the results mentioned in this section can be downloaded here [rgb hypothesis](https://github.com/cla-cif/Cherry-Powdery-Mildew-Detector/blob/main/attachments/ModellingEvaluating_softmax_rgb.ipynb) and here [gray hypothesis](https://github.com/cla-cif/Cherry-Powdery-Mildew-Detector/blob/main/attachments/ModellingEvaluating_gray.ipynb)
-
-**1. Introduction**
-
-Digital images are made of pixels, every image has three main properties:
-   - Size — This is the height and width of an image. It can be represented in centimeters, inches or even in pixels.
-   - Color space — Examples are RGB and HSV color spaces.
-   - Channel — This is an attribute of the color space. 
-  
-Each pixel of a coloured image is made of combinations of primary colors represented by a series of code. RGB color space has three types of colors or attributes known as Red, Green and Blue (hence the name RGB).
-A grayscale image is one in which the value of each pixel is a single sample representing only an amount of light; that is, it carries only intensity information. Grayscale images, a kind of black-and-white or gray monochrome, are composed exclusively of shades of gray.
-
-In an RGB image where there are three color channels, a pixel value has three numbers, each ranging from 0 to 255 (both inclusive). For example, the number 0 of a pixel in the red channel means that there is no red color in the pixel while the number 255 means that there is 100% red color in the pixel. A single RGB image can be represented using a three-dimensional (3D) NumPy array or a tensor.<br/>
-In a grayscale image where there is only one channel, a pixel value has just a single number ranging from 0 to 255 (both inclusive). The pixel value 0 represents black and the pixel value 255 represents white. Therefore a single grayscale image can be represented using a two-dimensional (2D) NumPy array or a tensor because it doesn't need an extra dimension for the color channel. <br/>
-Feeding a model with an RGB image or convert that image to grayscale, depends on the nature of the images and the information conveyed by the colour. 
-If the color has no significance in the image to classify, indeed a grayscale image requires less computational power to be processed.<br/><br/>
-
-**2. Observation**
-
-The model was set to train only on 32 Epoch with no early stoppings, just for the purpose of this hypothesis, and shows overfitting around the 10 last epochs as expected.
-The same hyperparameters were set for both examples. 
-The model trained using RGB images showed less training/validation sets gap and more consistent learning rate after the 5th Epoch compared to the model trained using Grayscale images. 
-The same CNN applied to an RGB image dataset has 3,715,234 parameters to train compared to 3,714,658 parameters when the same dataset is converted to grayscale. 
-
-   - Comparison of the same infected leaf image 
-   
-  ![gray_leaf](readme_images/gray.PNG) ![rgb_leaf](readme_images/color.PNG)
-
-**3. Conclusion**
-
-Keeping the colour information performed better. The plot shows lower loss and more consistent accuracy. A difference of 676 trainable parameters has no significant benefit on the computational cost. 
-
-Sources:
-- [How RGB and Grayscale Images Are Represented in NumPy Arrays](https://towardsdatascience.com/exploring-the-mnist-digits-dataset-7ff62631766a) by [Rukshan Pramoditha](https://rukshanpramoditha.medium.com/)
-
-**2. Observation**
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 
@@ -341,12 +233,6 @@ The main libraries used were:
 ## Testing
 
 ### Manual Testing
-
-*Business Requirements Testing*
-
-**Requirement 1** - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-
-* As an end user, I can review a page of project findings so that I can receive more detailed information on what conclusions the development team came to.
 
 | Dashboard item | Test conducted | Expected result | Actual result |
 | -- | -- | -- | -- |
