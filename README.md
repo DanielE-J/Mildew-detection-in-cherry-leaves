@@ -28,6 +28,10 @@
 - [Issues](#issues)
 - [Testing](#testing)
   - [Manual Testing](#manual-testing)
+  - [Python Validation](#python-validation)
+- [Credits](#credits)
+  - [Content](#content)
+- [Acknowledgements](#acknowledgements)
 
 
 ## Introduction
@@ -337,3 +341,35 @@ The client wanted a dashboard that would let them upload images of leaves to the
 | Box for uploading data | Upload image from file explorer | See report displaying analysis of the image | Success |
 | Box for uploading data | Repeat prior two items for multiple images | See report displaying analysis of all the images| Success |
 | Image analysis report | Click button to download csv report of analysis | Report is downloaded containing the results shown on dashboard| Success |
+
+### Python Validation
+The code in the Jupyter notebooks was validated using pycodestyle, which was installed through the following command:
+`pip install pep8 pycodestyle pycodestyle_magic`.
+
+It was implemented using a cell at the top of each page containing the following:
+
+```
+%load_ext pycodestyle_magic
+%pycodestyle_on
+```
+
+A copy was made of each notebook, which was run with pycodestyle enabled, any errors were then corrected in the corresponding cell in the primary notebook.
+
+[Back to top](#table-of-contents)
+
+
+## Credits
+
+### Content
+
+- Information on powdery midlew was taken from https://en.wikipedia.org/wiki/Powdery_mildew
+- The dataset was created by Code institute and taken from [Kaggle](https://www.kaggle.com/codeinstitute/cherry-leaves)
+- The Malaria Walkthrough Project from Code Institute was used as a guide when assembling this project.
+
+
+## Acknowledgements
+
+- My mentor Mo Shami for his feedback, advice, and support.
+- My Wife Agnes for her support, advice and help with the baby so i can take time for my project.
+
+[Back to top](#table-of-contents)
