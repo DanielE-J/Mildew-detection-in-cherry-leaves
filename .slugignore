@@ -10,3 +10,4 @@ README.md
 .gitpod.dockerfile
 .gitpod.yml
 app_pages/__pycache__/*
+src/__pycache__
