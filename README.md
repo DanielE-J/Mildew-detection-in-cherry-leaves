@@ -333,7 +333,7 @@ The main libraries used were:
 
 ## Issues
 
-* Dont know exactly what happend but everything crashed 2025-10-11 so did a new repository thats why this is so new.
+* Dont know exactly what happend but everything crashed 2025-10-11 so did a new repository thats why this is so new.(But had my code still just new repo)
 
 * Deployment - When attempting to deploy the app, it was discovered that it was too large to be posted. Despite adding a number of items to the .slugignore, it was still too large. To find more space, older versions of some libraries were used, and the python version selected was changed from 3.12 to 3.9, and some images had to be removed from the validation set posted to the dashboard that is used for the image visualiser page.
 
