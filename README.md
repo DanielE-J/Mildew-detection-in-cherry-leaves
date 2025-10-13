@@ -20,8 +20,7 @@
   - [Page 3: Powdery mildew Detector](#page-3-powdery-mildew-detector)
   - [Page 4: Project Hypothesis and Validation](#page-4-project-hypothesis-and-validation)
   - [Page 5: ML Performance Metrics](#page-5-ml-performance-metrics)
-- [Unfixed Bugs](#unfixed-bugs)
-- [Heroku Deployment](#heroku-deployment)
+- [Render deployment](#render-deployment)
 - [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
 - [Other Technologies used](#other-technologies-used)
 - [Issues](#issues)
@@ -39,7 +38,7 @@ Mildew detection in cherry leaves is a data science and machine learning (ML) pr
 
 Currently the client is inspecting trees manually to determine whether they are infected or not and then treated if found to be diseased. This process is both labour intensive and time consuming. We propose the creation of a ML model that can determine from photographs of leaves whether mildew is present, reducing the amount of time taken to determine the status of the tree and enable sick trees to be treated with greater efficiency and accuracy. 
 
-The project is hosted on the streamlit app and a live version may be found [here](https://cherrypowderymildewdetector-eb00906f7030.herokuapp.com/)
+The project is hosted on the streamlit app and a live version may be found [here](https://mildew-detection-in-cherry-leaves-pm2j.onrender.com/)
 
 
 ## Dataset Content
@@ -205,25 +204,16 @@ It will answer business requirement #1
 
 [Back to top](#table-of-contents)
 
-## Unfixed Bugs
-There are no unfixed bugs
 
-[Back to top](#table-of-contents)
+## Render deployment 
 
+1. Add new
+2. Web service
+3. connect to github
+4. Choose the right repo 
+5. Start command streamline run app.py 
+6. Deploy
 
-## Heroku Deployment
-
-[Official Page](https://devcenter.heroku.com/articles/git) (Ctrl + click)
-
-This application has been deployed from Github using Heroku. Here's how:
-
-1. Create an account at heroku.com
-
-2. Create an app, give it a name, and select a region
-
-3. Conect heroku to you github repository
-
-4. Deploy
 
 [Back to top](#table-of-contents)
 
@@ -247,17 +237,18 @@ The main libraries used were:
 
 * Streamlit - used for dashboard development to present data and for final project delivery
 
-* Heroku - used to deploy the project as a web app.
+* Render - used to deploy the project as a web app.
 
 * Git/GitHub - used for version control and code storage
 
 * Gitpod - IDE used to develop the project
 
-* Am I responsive - used to produce screenshot of the project.
 
 [Back to top](#table-of-contents)
 
 ## Issues
+
+* Project was to big for heroku so used Render.
 
 * Dont know exactly what happend but everything crashed 2025-10-11 so did a new repository thats why this is so new.(But had my code still just new repo)
 
