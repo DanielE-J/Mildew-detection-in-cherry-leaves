@@ -1,4 +1,4 @@
-![Banner](readme_images/Cherry banner.PNG)
+![Banner](readme_images/Cherrybanner.PNG)
 
 ## Table of contents
 
