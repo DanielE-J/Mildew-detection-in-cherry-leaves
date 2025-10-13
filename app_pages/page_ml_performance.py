@@ -72,6 +72,3 @@ def page_ml_performance_metrics():
     st.write("### Generalised Performance on Test Set")
     st.dataframe(pd.DataFrame(load_test_evaluation(version), index=['Loss', 'Accuracy']))
     
-    st.write(
-        f"For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/DanielE-J/Mildew-detection-in-cherry-leaves/blob/main/README.md).")

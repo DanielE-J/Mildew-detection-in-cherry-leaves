@@ -15,10 +15,6 @@ def page_leaves_visualizer_body():
     st.info(
         f"A study that visually differentiates a cherry leaf affected by powdery mildew from a healthy one.")
 
-    st.write(
-        f"For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/DanielE-J/Mildew-detection-in-cherry-leaves/blob/main/README.md).")
-
     st.warning(
         f"We suspect cherry leaves affected by powdery mildew have clear marks," 
         f" typically the first symptom is a light-green, circular lesion on either leaf surface," 
@@ -104,7 +100,6 @@ def image_montage(dir_path, label_to_display, nrows, ncols, figsize=(15,10)):
     
     st.pyplot(fig=fig)
     # plt.show()
-
 
   else:
     print("The label you selected doesn't exist.")

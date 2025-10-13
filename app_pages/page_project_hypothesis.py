@@ -64,7 +64,3 @@ def page_project_hypothesis_body():
     st.image(model_perf_rgb, caption='RGB images LSTM Loss/Accuracy performance')
     model_perf_gray = plt.imread(f"streamlit_images/model_history_gray.png")
     st.image(model_perf_gray, caption='Grayscale images LSTM Loss/Accuracy performance') 
-
-    st.write(
-        f"For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/DanielE-J/Mildew-detection-in-cherry-leaves/blob/main/README.md).")
