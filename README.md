@@ -45,3 +45,23 @@ The project is hosted on the streamlit app and a live version may be found [here
 - - The dataset contains over 4 thousand images taken from the client's cherry tree plantations. The images are divided into 2 sets, one of healthy leaves and one of leaves that are infected with powdery mildew. a fungal disease that affects many plant species. The client is concerned that the outbreak may be compromising the quality of their crop, which in turn would have serious ramifications for their business at large. 
 
 [Back to top](#table-of-contents)
+
+## Business Requirements
+
+This project's main objective is to create a machine learning model that can detect whether a given tree has powdery mildew or not based on photographs uploaded to the dashboard as opposed to manual inspections of each tree, reducing costs in time and labour. This will result in more effective treatment and prevent a decline in crop quality. 
+
+Key stakeholders for this are Farmy & Foods themselves, and their customers.
+
+When considering the business requirements and how to meet them, attention must be paid to the following:
+
+* The ML model produced must be accurate in its predictions of whether a leaf is infected or not
+* The model should be able to handle multiple items concurrently
+* The results produced from uploads must be easy to understand for both technical and non-technical personnel.
+* The model must be able to return a prediction quickly
+
+The specific requirements are as follows:
+
+1. The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew. This should provide average images of both kinds of leaves, as well as a variability image for each.
+2. The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew. To meet this requirement, a Convolutional Neural Network (CNN) should be developed to classify images as healthy or infected.
+
+[Back to top](#table-of-contents)
