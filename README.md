@@ -4,26 +4,18 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Dataset Content](#dataset-content)
-3. [Business Requirements](#business-requirements)
-4. [Hypothesis and validation](#hypothesis-and-validation)
-    1. [Hypothesis 1](#hypothesis-1)
-    2. [Hypothesis 1 Validation](#hypothesis-1-validation)
-    3. [Hypothesis 2](#hypothesis-2)
-    4. [Hypothesis 2 Validation](#hypothesis-2-validation)
-    5. [Hypothesis 3](#hypothesis-3)
-    6. [Hypothesis 3 Validation](#hypothesis-3-validation)
-5. [Rationale for the model](#the-rationale-for-the-model)
-6. [Trial and error](#trial-and-error)
-7. [Implementation of the Business Requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualizations-and-ml-tasks)
-8. [ML Business case](#ml-business-case)
-9. [Dashboard design](#dashboard-design-streamlit-app-user-interface)
-10.  [CRISP DM Process](#the-process-of-cross-industry-standard-process-for-data-mining)
-11. [Bugs](#bugs)
-12. [Deployment](#deployment)
-13. [Technologies used](#technologies-used)
-14. [Credits](#credits)
+- [Mildew detection in cherry leaves](#mildew-detection-in-cherry-leaves)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Dataset Content](#dataset-content)
+  - [Business Requirements](#business-requirements)
+  - [Hypothesis and validation](#hypothesis-and-validation)
+    - [Hypothesis 1](#hypothesis-1)
+    - [Hypothesis 1 Validation](#hypothesis-1-validation)
+    - [Hypothesis 2](#hypothesis-2)
+    - [Hypothesis 2 Validation](#hypothesis-2-validation)
+    - [Hypothesis 3](#hypothesis-3)
+    - [Hypothesis 3 Validation](#hypothesis-3-validation)
 
 ## Introduction
 
@@ -50,13 +42,26 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ## Hypothesis and validation
 
-1. **Hypothesis**: Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
+### Hypothesis 1
 
-- **How to validate**: Research about the disease and build an image study that can help to investigate it.<br/>
+ Infected leaves exhibit visible discoloration, spots, or deformities that are not present on healthy leaves.
 
-2. **Hypothesis**:  The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
+### Hypothesis 1 Validation
 
-- **How to validate**: Identify the problem type and the mathematical properties of each activation function. Train identical CNN models differing only in the output activation (softmax vs. sigmoid), then compare their performance using appropriate evaluation metrics.
+ Research about the disease and build an image study that can help to investigate it.<br/>
 
-3. **Hypothesis**: Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
-**How to validate**: We validated this by creating a final version of the ML model. This time, when augmenting the dataset the class mode was changed to categorical and the activation function in the ML model was changed to softmax.
+### Hypothesis 2
+
+  The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
+
+### Hypothesis 2 Validation
+
+ Identify the problem type and the mathematical properties of each activation function. Train identical CNN models differing only in the output activation (softmax vs. sigmoid), then compare their performance using appropriate evaluation metrics.
+
+### Hypothesis 3
+
+ Model accuracy is influenced by the output layer’s activation function. Our initial study used a sigmoid for binary classification of healthy vs. diseased leaves. We now propose using softmax for multi-class classification, which we expect to reduce accuracy.
+ 
+### Hypothesis 3 Validation
+
+ We validated this by creating a final version of the ML model. This time, when augmenting the dataset the class mode was changed to categorical and the activation function in the ML model was changed to softmax.
