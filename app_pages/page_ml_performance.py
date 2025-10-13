@@ -12,8 +12,7 @@ def page_ml_performance_metrics():
         f" a brief explaination of each result. "
     )
     st.write("### Images distribution per set and label ")
-
-    labels_distribution = plt.imread(f"outputs/{version}/number_leaves_sets.png")
+    labels_distribution = plt.imread(f"outputs/{version}/avg_var_powdery_mildew.png")
     st.image(labels_distribution, caption='Labels Distribution on Train, Validation and Test Sets')
 
     labels_distribution = plt.imread(f"outputs/{version}/sets_distribution_pie.png")

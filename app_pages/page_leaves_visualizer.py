@@ -10,6 +10,7 @@ import itertools
 import random
 
 def page_leaves_visualizer_body():
+    version = 'v1'
     st.write("### Leaves Visualizer")
     st.info(
         f"A study that visually differentiates a cherry leaf affected by powdery mildew from a healthy one.")
@@ -29,7 +30,6 @@ def page_leaves_visualizer_body():
         f" which takes into consideration the properties of an image"
     )
     
-    version = 'v1'
     if st.checkbox("Difference between average and variability image"):
       avg_powdery_mildew = plt.imread(f"outputs/{version}/avg_var_powdery_mildew.png")
       avg_uninfected = plt.imread(f"outputs/{version}/avg_var_healthy.png")
