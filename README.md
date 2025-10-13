@@ -78,6 +78,33 @@ To calculate the **mean** and **standard deviation**, the mathematical formula t
 Mean and std is calculated separately for each channel. The challenge is that we cannot load the entire dataset into memory to calculate these paramters. We can load a small set of images (batches) one by one and this can make the computation of mean and std non-trivial.
 
 **2. Observation**
+
+The Image Montage shows the difference between a healthy leaf and an infected one.
+
+![montage_healthy](readme_images/healthy.PNG)
+![montage_unhealthy](readme_images/unhealthy.PNG)
+
+Difference between average and variability images shows that affected leaves present more white stipes on the center.
+
+![average variability between samples](readme_images/average_healunheal.PNG)
+
+While image difference between average infected and average infected leaves shows no intuitive difference. 
+
+![average variability between samples](readme_images/avgall.PNG)
+
+**3. Conclusion**
+
+The model was able to detect differences in the data and learn how to differentiate and generalize in order to make accurate predictions.
+A good model develops its ability to predict classes on batches of data without adhering too closely to the specific examples in the training set.
+In this way, the model can generalize and reliably predict future observations because it doesn’t simply memorize the relationships between features and labels seen during training, but instead learns the underlying patterns that map features to labels.
+
+**Sources**:
+
+- [Pacific Northwest Pest Management Handbooks](https://pnwhandbooks.org/plantdisease/host-disease/cherry-prunus-spp-powdery-mildew)
+- [Calculate mean and std of Image Dataset](https://iq.opengenus.org/calculate-mean-and-std-of-image-dataset/)
+- [Computing Mean & STD in Image Dataset](https://kozodoi.me/python/deep%20learning/pytorch/tutorial/2021/03/08/image-mean-std.html)
+
+
 ### Hypothesis 2
 
 > The softmax activation function yields superior performance compared to the sigmoid activation function when used in the output layer of a Convolutional Neural Network (CNN).
